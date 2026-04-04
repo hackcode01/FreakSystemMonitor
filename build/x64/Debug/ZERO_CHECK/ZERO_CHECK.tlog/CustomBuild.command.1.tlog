@@ -1,0 +1,10 @@
+^D:\PROGRAMMING\FREAKSYSTEMMONITOR\BUILD\CMAKEFILES\19280043D4C963B251AFABD8E3952A2A\GENERATE.STAMP.RULE
+setlocal
+D:\cmake-4.1.0-windows-x86_64\bin\cmake.exe -SD:/Programming/FreakSystemMonitor -BD:/Programming/FreakSystemMonitor/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Programming/FreakSystemMonitor/build/FreakSystemMonitor.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
