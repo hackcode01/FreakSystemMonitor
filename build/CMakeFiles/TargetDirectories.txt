@@ -1,3 +1,0 @@
-D:/Programming/FreakSystemMonitor/build/CMakeFiles/FreakSystemMonitor.dir
-D:/Programming/FreakSystemMonitor/build/CMakeFiles/ALL_BUILD.dir
-D:/Programming/FreakSystemMonitor/build/CMakeFiles/ZERO_CHECK.dir
