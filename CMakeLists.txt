@@ -4,15 +4,27 @@ set(PROJECT_NAME FreakSystemMonitor)
 project(${PROJECT_NAME})
 
 set(INCLUDE_FILES
-    includes/main_window.hpp
+    app/defines.hpp
+
+    app/includes/application.hpp
+    app/includes/process.hpp
+    app/includes/thread.hpp
+
+    app/includes/window.hpp
 )
 
 set(SOURCE_FILES
-    source/main_window.cpp
+    app/run_program.cpp
+
+    app/source/application.cpp
+    app/source/process.cpp
+    app/source/thread.cpp
+
+    app/source/window.cpp
 )
 
-add_executable(${PROJECT_NAME} WIN32 ${INCLUDE_FILES} ${SOURCE_FILES} main.cpp)
-source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${INCLUDE_FILES} ${SOURCE_FILES} main.cpp)
+add_executable(${PROJECT_NAME} WIN32 ${INCLUDE_FILES} ${SOURCE_FILES})
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${INCLUDE_FILES} ${SOURCE_FILES})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
