@@ -41,7 +41,7 @@ void Process::setProcessName(const WCHAR* processName, u32 codePage) {
     m_processName = std::move(result);
 }
 
-DWORD Process::getProcessIdByName(const std::wstring& processName) {
+DWORD Process::getProcessIdByName(const std::wstring& processName) const {
     DWORD processId{0};
     HANDLE hSnapshot{CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0)};
     if (hSnapshot == INVALID_HANDLE_VALUE) {

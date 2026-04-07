@@ -11,6 +11,12 @@ set(INCLUDE_FILES
     app/includes/thread.hpp
 
     app/includes/window.hpp
+
+    lib/containers/vector.hpp
+
+    gui/buttons/buttons.hpp
+    gui/sections/sections.hpp
+    gui/tabs/tabs.hpp
 )
 
 set(SOURCE_FILES
@@ -21,6 +27,8 @@ set(SOURCE_FILES
     app/source/thread.cpp
 
     app/source/window.cpp
+
+    lib/containers/vector.cpp
 )
 
 add_executable(${PROJECT_NAME} WIN32 ${INCLUDE_FILES} ${SOURCE_FILES})

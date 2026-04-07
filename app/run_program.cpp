@@ -1,13 +1,17 @@
 #include "app/includes/process.hpp"
+#include "app/includes/thread.hpp"
 #include "app/includes/window.hpp"
 
-#include <Windows.h>
+#include <cstdlib>
 #include <iostream>
 
 int32_t WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine,
                        int32_t numberCmdShow) {
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+
     if (!AllocConsole()) {
-        return -1;
+        return EXIT_FAILURE;
     }
 
     FILE* fDummy;
@@ -16,9 +20,14 @@ int32_t WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmd
     freopen_s(&fDummy, "CONIN$", "r", stdin);
 
     Process process{};
-    DWORD processId{process.getProcessIdByName(L"Lightshot.exe")};
-    std::cout << "Process Lightshot.exe with pid " << processId << '\n';
-    process.printListProcessThreads(9788);
+
+    DWORD processId{process.getProcessIdByName(L"Code.exe")};
+    std::cout << "Process " << process.getProcessName().c_str() << " with pid " << processId << '\n';
+    process.printListProcessThreads(processId);
+
+    std::cout << '\n';
+    process.setProcessName(L"Code.exe");
+    Thread::printAllThreads(process);
 
     Window window{};
 
@@ -29,5 +38,5 @@ int32_t WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmd
     window.runWindow();
 
     FreeConsole();
-    return 0;
+    return EXIT_SUCCESS;
 }
