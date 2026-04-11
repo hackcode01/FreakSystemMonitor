@@ -17,6 +17,10 @@ set(INCLUDE_FILES
     gui/buttons/buttons.hpp
     gui/sections/sections.hpp
     gui/tabs/tabs.hpp
+
+    phlib/includes/phbasesup.hpp
+
+    sdk/includes/appresolver.hpp
 )
 
 set(SOURCE_FILES
@@ -32,6 +36,11 @@ set(SOURCE_FILES
 )
 
 add_executable(${PROJECT_NAME} WIN32 ${INCLUDE_FILES} ${SOURCE_FILES})
+
+if(CMAKE_GENERATOR MATCHES "Visual Studio")
+    set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT "${PROJECT_NAME}")
+endif()
+
 source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${INCLUDE_FILES} ${SOURCE_FILES})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
