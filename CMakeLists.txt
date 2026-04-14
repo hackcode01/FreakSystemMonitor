@@ -21,6 +21,8 @@ set(INCLUDE_FILES
     phlib/includes/phbasesup.hpp
 
     sdk/includes/appresolver.hpp
+
+    phnt/include/phnt_ntdef.hpp
 )
 
 set(SOURCE_FILES
